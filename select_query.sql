@@ -97,3 +97,50 @@ select grade, count(name)
 from student
 group by grade
 order by grade;
+
+select * from student; # Displaying the query once !!
+
+select city, count(rollno)
+from student
+group by city
+having max(marks) > 90;
+
+# Another query for proper!
+select city
+from student
+where grade = "A"
+group by city
+having max(marks) > 94
+order by city asc;
+
+# Coming to the table related query 
+# Update Query !!
+
+set sql_safe_updates = 0; # Disable the safe update mode !
+
+update student
+set grade = "O"
+where grade = "A";
+
+select * from student;
+
+# Updating marks of 105 to 92
+update student
+set marks = 92
+where rollno = 105;
+
+update student # Not working !!
+set grade = "B"
+where marks between 80 and 90;
+
+select * from student;
+
+# Applying the delete command !!
+delete from student
+where marks < 85;
+
+select * from student;
+
+# Another query !!
+update student
+set marks = marks + 1;
