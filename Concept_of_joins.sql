@@ -133,3 +133,10 @@ select a.name as manager_name, b.name
 from employee as a
 join employee as b
 on a.id = b.manager_id;
+
+
+# Union Concept for the Employee table
+select * from employee
+union all
+select * from employee; # Performing the full join concept !
+
